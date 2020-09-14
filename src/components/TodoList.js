@@ -12,7 +12,11 @@ class TodoList extends Component {
             items: []
         };
 
+        // Add targeting
         this.addItem = this.addItem.bind(this);
+
+        // Delete targeting
+        this.deleteItem = this.deleteItem.bind(this);
     }
 
     addItem(e) {
@@ -41,6 +45,18 @@ class TodoList extends Component {
 
     }
 
+    deleteItem(key) {
+        // Array with all items except the one to delete
+        var filteredItems = this.state.items.filter(function (item) {
+            return (item.key !== key);
+        });
+
+        this.setState({
+            // Set the state with the new array filtered
+            items: filteredItems
+        });
+    }
+
     render() {
         return (
             <div className="todoListMain">
@@ -53,7 +69,8 @@ class TodoList extends Component {
                         <button type="submit">Ajouter</button>
                     </form>
                 </div>
-                <TodoItems entries={this.state.items}/>
+                <TodoItems entries={this.state.items}
+                           delete={this.deleteItem}/>
             </div>
         )
     }
