@@ -40,8 +40,12 @@ class TodoList extends Component {
 
         console.log(this.state.items);
 
+
+
         // Block refresh page on submit
         e.preventDefault();
+
+
 
     }
 
@@ -55,6 +59,19 @@ class TodoList extends Component {
             // Set the state with the new array filtered
             items: filteredItems
         });
+    }
+
+    componentWillMount() {
+        let itemList = localStorage.getItem('items')
+        if (itemList) {
+            this.setState({
+                items: JSON.parse(localStorage.getItem('items'))
+            })
+        }
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
+        localStorage.setItem('items', JSON.stringify(this.state.items))
     }
 
     render() {

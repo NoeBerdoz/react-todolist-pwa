@@ -15,3 +15,12 @@ https://javascript.info/indexeddb#:~:text=IndexedDB%20is%20a%20database%20that,v
 # Sources and tutorials
 Creating the main functionnality : 
 https://www.kirupa.com/react/simple_todo_app_react.htm
+
+Data persistant video :
+https://youtu.be/ncBSWL1tkr0
+
+Data persistant example :
+https://codepen.io/simonswiss/pen/EVrGeb
+
+# Inspiration
+https://codepen.io/saawsan/pen/jayzeq
