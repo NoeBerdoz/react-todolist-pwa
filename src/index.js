@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import TodoList from "./components/TodoList";
-
+import TaskProvider from "./services/TaskProvider";
 import * as serviceWorker from './serviceWorker';
-
-var destination = document.querySelector("#container");
+import App from "./App";
 
 ReactDOM.render(
-    <div>
-        <p>Liste de tâches</p>
-        <TodoList/>
-    </div>,
-    destination
+    <TaskProvider>
+        <App />
+    </TaskProvider>,
+    document.getElementById('container')
 );
 
 // If you want your app to work offline and load faster, you can change

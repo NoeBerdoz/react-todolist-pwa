@@ -6,6 +6,8 @@ The React Todolist application is made for listing tasks that need to be done.
 
 ## Animation
 Anime.JS https://animejs.com/
+Framer Motion https://www.framer.com/motion/
+Spring https://www.react-spring.io/docs/props/spring
 
 # Store data
 IndexedDB
