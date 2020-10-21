@@ -5,6 +5,7 @@ import { useTasks } from "../services/TaskProvider";
 export default function TaskList() {
     // Extract tasks
     const { tasks } = useTasks()
+
     return (
         <table>
             <tbody>

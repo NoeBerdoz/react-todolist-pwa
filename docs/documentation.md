@@ -24,5 +24,8 @@ https://youtu.be/ncBSWL1tkr0
 Data persistant example :
 https://codepen.io/simonswiss/pen/EVrGeb
 
+FunctionalComponent with Data persistent:
+https://dev.to/saranshk/react-hooks-and-local-storage-let-s-build-a-todo-app-39g3
+
 # Inspiration
 https://codepen.io/saawsan/pen/jayzeq

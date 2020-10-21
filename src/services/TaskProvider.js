@@ -1,4 +1,4 @@
-import React, {createContext, useState, useContext} from "react";
+import React, {createContext, useState, useContext, useEffect} from "react";
 import { v4 } from "uuid";
 
 // Create context to access states
@@ -8,7 +8,13 @@ export const useTasks = () => useContext(TaskContext)
 
 export default function TaskProvider({ children }) {
     // useState returns an array of two objects, the value & the state
-    const [tasks, setTasks] = useState([])
+    const savedItems = JSON.parse(localStorage.getItem('items'));
+    const [tasks, setTasks] = useState(savedItems || [])
+
+
+    useEffect(() => {
+       localStorage.setItem('items', JSON.stringify(tasks));
+    });
 
     const addTask = task =>
         setTasks([
@@ -24,8 +30,13 @@ export default function TaskProvider({ children }) {
         setTasks(tasks.map(t => t.id === id ? {...t, complete: status} : t))
     }
 
+    const removeTask = (taskToBeDeleted) => {
+        setTasks(tasks.filter((task) => taskToBeDeleted !== task));
+        console.log(taskToBeDeleted)
+    };
+
     return (
-        <TaskContext.Provider value={{ tasks, addTask, setStatusTask }}>
+        <TaskContext.Provider value={{ tasks, addTask, setStatusTask, removeTask }}>
             { children }
         </TaskContext.Provider>
     )
