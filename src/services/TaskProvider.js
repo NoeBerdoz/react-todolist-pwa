@@ -31,8 +31,8 @@ export default function TaskProvider({ children }) {
     }
 
     const removeTask = (taskToBeDeleted) => {
-        setTasks(tasks.filter((task) => taskToBeDeleted !== task));
-        console.log(taskToBeDeleted)
+        setTasks(tasks.filter((task) => taskToBeDeleted.id !== task.id));
+
     };
 
     return (
