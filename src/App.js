@@ -17,7 +17,7 @@ function App() {
 
     const ref = useRef([])
     const [items, set] = useState([])
-    const transition = useTransition(items, null, {
+    const transitions = useTransition(items, null, {
         from: { opacity: 0, height: 0, innerHeight: 0, transform: 'perspective(600px) rotateX(0deg)', color: '#8fa5b6' },
         enter: [
             { opacity: 1, height: 80, innerHeight: 80 },
@@ -32,17 +32,18 @@ function App() {
         ref.current.map(clearTimeout)
         ref.current = []
         set([])
-        ref.current.push(setTimeout(() => set(['Bienvenue', 'Tâches', 'Noé']), 2000))
-        ref.current.push(setTimeout(() => set(['Bienvenue', 'Noé']), 5000))
-        ref.current.push(setTimeout(() => set(['Bienvenue', 'Sur votre liste', 'Noé']), 8000))
+        ref.current.push(setTimeout(() => set(['Liste', 'de', 'tâches']), 2000))
+        ref.current.push(setTimeout(() => set(['Liste', 'tâches']), 5000))
+        ref.current.push(setTimeout(() => set(['Liste', 'de mes', 'tâches']), 8000))
     }, [])
 
     useEffect(() => void reset(), [])
 
   return (
       <div className="container">
-        <div>{transition.map(({ item, props: { innerHeight, ...rest }, key }) => (
-            <animated.div clasName="transition-item" key={key} style={rest} onClick={reset}>
+        <div>
+            {transitions.map(({ item, props: { innerHeight, ...rest }, key }) => (
+            <animated.div className="transitions-item" key={key} style={rest} onClick={reset}>
                 <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
             </animated.div>
               ))}

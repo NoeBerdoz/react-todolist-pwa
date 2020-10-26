@@ -29,3 +29,6 @@ https://dev.to/saranshk/react-hooks-and-local-storage-let-s-build-a-todo-app-39g
 
 # Inspiration
 https://codepen.io/saawsan/pen/jayzeq
+
+Animations Title : 
+https://codesandbox.io/embed/vqpqx5vrl0

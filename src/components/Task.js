@@ -9,11 +9,10 @@ export default function Task(taskProps) {
 
     const checkTask = e => setStatusTask(taskProps.id, e.target.checked)
 
-
     return(
         <tr>
             <td>
-                <input type="checkbox" onChange={checkTask}/>
+                <input type="checkbox" onChange={checkTask} checked={taskProps.complete}/>
             </td>
             <td>
                 <span className={ taskProps.complete ? 'task-done' : ''}>{ taskProps.task }</span>
