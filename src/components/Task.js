@@ -1,6 +1,6 @@
 import React from "react";
 import { useTasks } from "../services/TaskProvider";
-
+import {useSpring, animated} from "react-spring";
 
 export default function Task(taskProps) {
 
@@ -8,6 +8,13 @@ export default function Task(taskProps) {
     const { removeTask } = useTasks()
 
     const checkTask = e => setStatusTask(taskProps.id, e.target.checked)
+
+    const buttonXAnimation = useSpring({
+        transform: 'opacity: 1',
+        from: {
+            transform: 'opacity: 0'
+        }
+    })
 
     return(
         <tr>
@@ -17,7 +24,7 @@ export default function Task(taskProps) {
             <td>
                 <span className={ taskProps.complete ? 'task-done' : ''}>{ taskProps.task }</span>
             </td>
-            <td><button onClick={() => removeTask(taskProps)}>X</button></td>
+            <td><animated.button style={buttonXAnimation} onClick={() => removeTask(taskProps)}>X</animated.button></td>
         </tr>
     )
 

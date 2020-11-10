@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTasks } from "../services/TaskProvider";
+import {useSpring, animated} from "react-spring";
 
 export default function NewTaskForm() {
 
@@ -14,10 +15,26 @@ export default function NewTaskForm() {
         setTask('')
     }
 
+    const formAnimation = useSpring({
+        transform: 'translateX(0%)',
+        from: {
+            transform: 'translateY(-100%)'
+        }
+    })
+
+    const buttonAnimation = useSpring({
+        transform: 'translateX(0%)',
+        from: {
+            transform: 'translateX(50%)'
+        }
+    })
+
+
+
     return (
         <form onSubmit={submit}>
-            <input type="text" value={task} onChange={e => setTask(e.target.value)} required />
-            <button>Ajouter</button>
+            <animated.input style={formAnimation} type="text" value={task} onChange={e => setTask(e.target.value)} required />
+            <animated.button style={buttonAnimation}>Ajouter</animated.button>
         </form>
     )
 

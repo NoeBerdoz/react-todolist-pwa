@@ -1,7 +1,6 @@
-import React, { useRef } from "react";
+import React  from "react";
 import Task from "./Task";
 import { useTasks } from "../services/TaskProvider";
-
 
 export default function TaskList() {
 
@@ -11,12 +10,12 @@ export default function TaskList() {
     return (
         <table>
             <tbody>
-            {
-                // For each tasks we create a component
-                tasks.map((task, i) =>
-                    <Task key={i} {...task}/>
-                )
-            }
+                    {
+                        // For each tasks we create a component
+                        tasks.map((task, i) =>
+                            <Task  key={i} {...task}/>
+                        )
+                    }
             </tbody>
         </table>
     )

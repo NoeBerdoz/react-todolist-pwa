@@ -8,11 +8,15 @@
     "@testing-library/user-event": "^7.2.1",
     "lodash-es": "^4.17.15",
     "lodash-move": "^1.1.1",
+    "mdbreact": "^4.27.0",
     "react": "^16.13.1",
+    "react-beautiful-dnd": "^13.0.0",
     "react-dom": "^16.13.1",
+    "react-flip-move": "^3.0.4",
     "react-scripts": "3.4.3",
     "react-spring": "^8.0.27",
     "react-use-gesture": "^7.0.16",
+    "styled-components": "^5.2.1",
     "uuid": "^8.3.1"
   },
   "scripts": {

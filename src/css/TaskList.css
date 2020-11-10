@@ -75,13 +75,13 @@ tr:nth-child(even) {
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    font-size: 5em;
+    font-size: 1em;
     font-weight: 800;
     text-transform: uppercase;
     will-change: transform, opacity, height;
     white-space: nowrap;
     cursor: pointer;
-    line-height: 80px;
+    line-height: 20px;
     text-align: center !important;
 }
 

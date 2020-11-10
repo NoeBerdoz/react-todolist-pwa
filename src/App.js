@@ -3,24 +3,17 @@ import './App.css';
 import './css/TaskList.css'
 import NewTaskForm from "./components/NewTaskForm";
 import TaskList from "./components/TaskList";
-import {useSpring, animated, useTransition} from "react-spring";
+import {animated, useTransition} from "react-spring";
+import {MDBCol, MDBContainer, MDBRow} from "mdbreact";
 
 function App() {
-
-    const props = useSpring({
-        to: async (next, cancel) => {
-            await next({opacity: 1, color: '#ffffee'})
-            await next({opacity: 1, color: '#61dafb'})
-        },
-        from: {opacity: 0, color: 'black'}
-    })
 
     const ref = useRef([])
     const [items, set] = useState([])
     const transitions = useTransition(items, null, {
         from: { opacity: 0, height: 0, innerHeight: 0, transform: 'perspective(600px) rotateX(0deg)', color: '#8fa5b6' },
         enter: [
-            { opacity: 1, height: 80, innerHeight: 80 },
+            { opacity: 1, height: 20, innerHeight: 20 },
             { transform: 'perspective(600px) rotateX(180deg)', color: '#28d79f' },
             { transform: 'perspective(600px) rotateX(0deg)' },
         ],
@@ -41,17 +34,27 @@ function App() {
 
   return (
       <div className="container">
-        <div>
-            {transitions.map(({ item, props: { innerHeight, ...rest }, key }) => (
-            <animated.div className="transitions-item" key={key} style={rest} onClick={reset}>
-                <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
-            </animated.div>
-              ))}
-        </div>
-        <animated.div style={props}><h1 className="title">Liste de tâches</h1></animated.div>
-        <NewTaskForm/>
-        <TaskList/>
+          <MDBContainer>
+              <MDBRow>
+                  <MDBCol size="3">
+                      {transitions.map(({ item, props: { innerHeight, ...rest }, key }) => (
+                          <animated.div className="transitions-item" key={key} style={rest} onClick={reset}>
+                              <animated.div style={{ overflow: 'hidden', height: innerHeight }}>{item}</animated.div>
+                          </animated.div>
+                      ))}
+                  </MDBCol>
+                  <MDBCol size="7">
+                    <NewTaskForm/>
+                  </MDBCol>
+              </MDBRow>
+              <MDBRow>
+                  <TaskList/>
+              </MDBRow>
+              <p>Made by Noé Berdoz</p>
+          </MDBContainer>
+
       </div>
+
   );
 }
 
